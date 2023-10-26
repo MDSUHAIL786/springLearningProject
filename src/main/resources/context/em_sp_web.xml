@@ -11,8 +11,6 @@
     <context:component-scan base-package="com.personal.emsp.controller"/>
 
 
-    <!-- import dependent xml file means em_sp_web.xml is main context file all other xml would be import here -->
-    <import resource="jdbc_context.xml"/>
 
 
     <!-- controller package path to enable annotation  -->
@@ -30,11 +28,6 @@
 <!--        <property name="email" value="10000"/>-->
 <!--        <property name="password" value="10000"/>-->
 <!--    </bean>-->
-
-<!--    following bean is used to create object of EmployeeDataAccessServiceImpl class because we have to use this class in controller-->
-    <bean class="com.personal.emsp.das.impl.EmployeeDataAccessServiceImpl" name="dataAccessService">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
 
 
     <!-- more bean definitions go here -->

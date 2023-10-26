@@ -1,9 +1,11 @@
 package com.personal.emsp.controller;
 
 
+import com.personal.emsp.config.JdbcConfiguration;
 import com.personal.emsp.das.EmployeeDataAccessService;
 import com.personal.emsp.das.entity.Employee;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,15 +33,15 @@ public class test {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("context/em_sp_web.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
 
 
         //for create the employee
         Employee emp=new Employee();
-        emp.setEmail("Sahil09.saifi@gmail.com");
-        emp.setFirstName("Sahil");
-        emp.setPassword("lsfdjoasjxci088");
-        emp.setLastName("Saifi");
+        emp.setEmail("xyz.saifi@gmail.com");
+        emp.setFirstName("hdfc");
+        emp.setPassword("sdew234@#%");
+        emp.setLastName("Bank");
 
 
         //for update the employee
@@ -51,7 +53,7 @@ public class test {
         emp2.setLastName("Qadri");
 
         EmployeeDataAccessService dataAccessService= (EmployeeDataAccessService) context.getBean("dataAccessService");
-//        dataAccessService.insertEmployee(emp);
+        dataAccessService.insertEmployee(emp);
 //        dataAccessService.updateEmployee(emp2);
 //        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
 //        System.out.println(dataAccessService.getEmployee(1).getEmail());
