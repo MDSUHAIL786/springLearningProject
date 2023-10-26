@@ -3,6 +3,7 @@ package com.personal.emsp.config;
 import com.personal.emsp.das.EmployeeDataAccessService;
 import com.personal.emsp.das.impl.EmployeeDataAccessServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -10,6 +11,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackages = {"com.personal.emsp.*"})
 public class JdbcConfiguration {
 
     @Bean(name={"ds"})
@@ -27,8 +29,5 @@ public class JdbcConfiguration {
         return new JdbcTemplate(this.getDataSource());
     }
 
-    @Bean("dataAccessService")
-    public EmployeeDataAccessService getEmployeeDataAccessServiceImpl(){
-        return new EmployeeDataAccessServiceImpl(this.getJdbcTemplate());
-    }
+
 }

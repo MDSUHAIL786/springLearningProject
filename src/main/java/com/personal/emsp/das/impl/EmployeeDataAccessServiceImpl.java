@@ -3,12 +3,16 @@ package com.personal.emsp.das.impl;
 import com.personal.emsp.das.EmployeeDataAccessService;
 import com.personal.emsp.das.entity.Employee;
 import com.personal.emsp.das.rowMapper.EmployeeRowMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component("employeeDataAccessService")
 public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService {
 
+    @Autowired
     public JdbcTemplate jdbcTemplate;
 
     public EmployeeDataAccessServiceImpl(JdbcTemplate jdbcTemplate){

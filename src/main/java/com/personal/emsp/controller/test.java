@@ -38,8 +38,8 @@ public class test {
 
         //for create the employee
         Employee emp=new Employee();
-        emp.setEmail("xyz.saifi@gmail.com");
-        emp.setFirstName("hdfc");
+        emp.setEmail("axis.bank@gmail.com");
+        emp.setFirstName("axis");
         emp.setPassword("sdew234@#%");
         emp.setLastName("Bank");
 
@@ -52,7 +52,7 @@ public class test {
         emp2.setPassword("sdfse232");
         emp2.setLastName("Qadri");
 
-        EmployeeDataAccessService dataAccessService= (EmployeeDataAccessService) context.getBean("dataAccessService");
+        EmployeeDataAccessService dataAccessService= context.getBean("employeeDataAccessService",EmployeeDataAccessService.class);
         dataAccessService.insertEmployee(emp);
 //        dataAccessService.updateEmployee(emp2);
 //        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
