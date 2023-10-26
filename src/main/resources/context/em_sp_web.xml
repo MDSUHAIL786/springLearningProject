@@ -11,14 +11,28 @@
     <context:component-scan base-package="com.personal.emsp.controller"/>
 
 
+    <!-- import dependent xml file means em_sp_web.xml is main context file all other xml would be import here -->
+    <import resource="jdbc_context.xml"/>
+
+
     <!-- controller package path to enable annotation  -->
-    <bean name="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--    <bean name="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
 
-        <!-- collaborators and configuration for this bean go here -->
-        <property name="prefix" value="/views/"/>   <!-- folder path where views are exist -->
-        <property name="suffix" value=".jsp"/>            <!-- extension of view -->
+<!--        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;-->
+<!--        <property name="prefix" value="/views/"/>   &lt;!&ndash; folder path where views are exist &ndash;&gt;-->
+<!--        <property name="suffix" value=".jsp"/>            &lt;!&ndash; extension of view &ndash;&gt;-->
 
+<!--    </bean>-->
+
+<!--    <bean class="com.personal.emsp.das.entity.Employee" name="emp">-->
+<!--        <property name="firstName" value="1"/>-->
+<!--        <property name="lastName" value="Rajesh"/>-->
+<!--        <property name="email" value="10000"/>-->
+<!--        <property name="password" value="10000"/>-->
+<!--    </bean>-->
+
+    <bean class="com.personal.emsp.das.impl.EmployeeDataAccessServiceImpl" name="dataAccessService">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
-
     <!-- more bean definitions go here -->
 </beans>
