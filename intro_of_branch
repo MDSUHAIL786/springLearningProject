@@ -3,3 +3,4 @@ The main program is in controller/test.java
 
 mysql version : 8+
 mysql-connector maven dependency version : 8+  (lesser than this is not compatible with mysql version 8+)
+hibernate dependecy version : 5+
