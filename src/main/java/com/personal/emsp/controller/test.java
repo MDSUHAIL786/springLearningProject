@@ -33,13 +33,27 @@ public class test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("context/em_sp_web.xml");
 
+
+        //for create the employee
         Employee emp=new Employee();
-        emp.setEmail("suhail.saifi@gmail.com");
-        emp.setFirstName("Suhail");
-        emp.setPassword("dsai");
-        emp.setLastName("Ali");
+        emp.setEmail("Sahil09.saifi@gmail.com");
+        emp.setFirstName("Sahil");
+        emp.setPassword("lsfdjoasjxci088");
+        emp.setLastName("Saifi");
+
+
+        //for update the employee
+        Employee emp2=new Employee();
+        emp2.setId(3);                      // should be exist in DB for update and delete
+        emp2.setEmail("Sahil09.saifi@gmail.com");
+        emp2.setFirstName("Sahil");
+        emp2.setPassword("sdfse232");
+        emp2.setLastName("Qadri");
+
         EmployeeDataAccessService dataAccessService= (EmployeeDataAccessService) context.getBean("dataAccessService");
         dataAccessService.insertEmployee(emp);
+        dataAccessService.updateEmployee(emp2);
+        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
     }
 
 

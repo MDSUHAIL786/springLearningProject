@@ -27,12 +27,14 @@ public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService 
     }
 
     @Override
-    public int updateEmployee(Employee emp, Employee updatedEmp) {
-        return 0;
+    public int updateEmployee(Employee emp) {
+        String qry = "update employee set firstName=?,lastName=?,email=?,password=? where id=?";
+        return jdbcTemplate.update(qry,emp.getFirstName(),emp.getLastName(),emp.getEmail(),emp.getPassword(),emp.getId());   //returning the number of rows affected
     }
 
     @Override
     public Boolean deleteEmployee(int id) {
-        return null;
+        String qry="delete from employee where id=?";
+        return jdbcTemplate.update(qry,id)==1;
     }
 }

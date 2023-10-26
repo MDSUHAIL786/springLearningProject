@@ -5,7 +5,7 @@ import com.personal.emsp.das.entity.Employee;
 public interface EmployeeDataAccessService {
 
     public int insertEmployee(Employee emp);
-    public int updateEmployee(Employee emp,Employee updatedEmp);
+    public int updateEmployee(Employee updatedEmp);
     public Boolean deleteEmployee(int id);
 }
 
