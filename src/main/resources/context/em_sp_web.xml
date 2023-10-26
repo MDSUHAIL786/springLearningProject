@@ -31,8 +31,11 @@
 <!--        <property name="password" value="10000"/>-->
 <!--    </bean>-->
 
+<!--    following bean is used to create object of EmployeeDataAccessServiceImpl class because we have to use this class in controller-->
     <bean class="com.personal.emsp.das.impl.EmployeeDataAccessServiceImpl" name="dataAccessService">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+
     <!-- more bean definitions go here -->
 </beans>

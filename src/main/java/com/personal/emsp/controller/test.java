@@ -51,9 +51,12 @@ public class test {
         emp2.setLastName("Qadri");
 
         EmployeeDataAccessService dataAccessService= (EmployeeDataAccessService) context.getBean("dataAccessService");
-        dataAccessService.insertEmployee(emp);
-        dataAccessService.updateEmployee(emp2);
-        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
+//        dataAccessService.insertEmployee(emp);
+//        dataAccessService.updateEmployee(emp2);
+//        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
+//        System.out.println(dataAccessService.getEmployee(1).getEmail());
+//        System.out.println(dataAccessService.getAllEmployees().size());
+
     }
 
 

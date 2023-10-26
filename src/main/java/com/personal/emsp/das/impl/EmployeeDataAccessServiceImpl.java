@@ -2,7 +2,10 @@ package com.personal.emsp.das.impl;
 
 import com.personal.emsp.das.EmployeeDataAccessService;
 import com.personal.emsp.das.entity.Employee;
+import com.personal.emsp.das.rowMapper.EmployeeRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService {
 
@@ -37,4 +40,15 @@ public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService 
         String qry="delete from employee where id=?";
         return jdbcTemplate.update(qry,id)==1;
     }
+
+    @Override
+    public Employee getEmployee(int id) {
+        String qry= "select * from employee where id=?";
+        return jdbcTemplate.queryForObject(qry,new EmployeeRowMapper(),id);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        String qry= "select * from employee";
+        return jdbcTemplate.query(qry,new EmployeeRowMapper());    }
 }
