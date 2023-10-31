@@ -35,3 +35,5 @@ load() method will hit database only when we use object data like object.getId()
 
 
 //@Embeddable -- this annotation is used to save object of another class in database-- see program for more details
+
+//Question and Answer entities example of @OneToOne mapping

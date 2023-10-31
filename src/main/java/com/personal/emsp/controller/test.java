@@ -1,6 +1,8 @@
 package com.personal.emsp.controller;
 
+import com.personal.emsp.das.entity.Answer;
 import com.personal.emsp.das.entity.Employee;
+import com.personal.emsp.das.entity.Question;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -35,8 +37,21 @@ public class test {
         Session session=factory.openSession();
 
         Transaction txn=session.beginTransaction();
+        Answer a1=new Answer("Airtel");
+
         Employee emp=new Employee("sahil","khan","sahilkhan@gmail.com","12345678");
+        Question q1=new Question();
+        q1.setQuestion("Which is your sim?");
+        q1.setAnswer(a1);
+
+        Question q2=new Question();
+        q2.setQuestion("what is java?");
+
+
         session.save(emp);
+        session.save(a1);
+        session.save(q1);
+        session.save(q2);
         txn.commit();
 
 //        see difference between get and load in README.txt

@@ -13,5 +13,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <mapping class="com.personal.emsp.das.entity.Employee"/>   <!-- mapping of the entity class required to mapping ow hibernate not know the entity-->
+        <mapping class="com.personal.emsp.das.entity.Question"/>
+        <mapping class="com.personal.emsp.das.entity.Answer"/>
     </session-factory>
 </hibernate-configuration>
