@@ -1,12 +1,10 @@
 package com.personal.emsp.controller;
 
-
-import com.personal.emsp.config.JdbcConfiguration;
-import com.personal.emsp.das.EmployeeDataAccessService;
 import com.personal.emsp.das.entity.Employee;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,31 +31,24 @@ public class test {
     }
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfiguration.class);
+        SessionFactory factory = new Configuration().configure("context/hibernate.cfg.xml").buildSessionFactory();
+        Session session=factory.openSession();
 
+        Transaction txn=session.beginTransaction();
+        Employee emp=new Employee("sahil","khan","sahilkhan@gmail.com","12345678");
+        session.save(emp);
+        txn.commit();
 
-        //for create the employee
-        Employee emp=new Employee();
-        emp.setEmail("axis.bank@gmail.com");
-        emp.setFirstName("axis");
-        emp.setPassword("sdew234@#%");
-        emp.setLastName("Bank");
+//        see difference between get and load in README.txt
+        Employee em= session.get(Employee.class,1);
+        System.out.println(em.getEmail()+":"+em.getPassword());
 
+        Employee em2= session.load(Employee.class,3);
+        System.out.println(em2.getFirstName()+":"+em.getLastName());
 
-        //for update the employee
-        Employee emp2=new Employee();
-        emp2.setId(3);                      // should be exist in DB for update and delete
-        emp2.setEmail("Sahil09.saifi@gmail.com");
-        emp2.setFirstName("Sahil");
-        emp2.setPassword("sdfse232");
-        emp2.setLastName("Qadri");
-
-        EmployeeDataAccessService dataAccessService= context.getBean("employeeDataAccessService",EmployeeDataAccessService.class);
-        dataAccessService.insertEmployee(emp);
-//        dataAccessService.updateEmployee(emp2);
-//        dataAccessService.deleteEmployee(3);         //give the id of the employee to be deleted
-//        System.out.println(dataAccessService.getEmployee(1).getEmail());
-//        System.out.println(dataAccessService.getAllEmployees().size());
+        session.close();
+        factory.close();
+        System.out.println(factory.isClosed());
 
     }
 

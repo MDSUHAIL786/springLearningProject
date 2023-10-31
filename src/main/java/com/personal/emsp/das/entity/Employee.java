@@ -3,9 +3,11 @@ package com.personal.emsp.das.entity;
 import javax.persistence.*;
 
 
+@Entity
+@Table(name = "emp_data")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "first_name")
@@ -23,13 +25,21 @@ public class Employee {
     @Column(name = "password")
     private String password;
 
+    @Transient
+    private String role;
 
-//    public Employee(String firstName, String lastName, String email, String password) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.password = password;
-//    }
+    @Column(name = "token")
+    private String token;
+    public Employee() {
+        super();
+    }
+
+    public Employee(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getId() {
         return id;

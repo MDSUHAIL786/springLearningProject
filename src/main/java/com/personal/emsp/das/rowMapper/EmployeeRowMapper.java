@@ -24,7 +24,6 @@ public class EmployeeRowMapper implements RowMapper<Employee> {
         //emp.setId(rs.getInt("id"));
         //emp.setFirstName(rs.getString("firstName"));
 
-
         return emp;
     }
 }
