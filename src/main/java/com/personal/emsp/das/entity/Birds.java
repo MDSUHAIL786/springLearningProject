@@ -5,8 +5,6 @@ import javax.persistence.*;
 
 
 public class Birds {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String firstName;
