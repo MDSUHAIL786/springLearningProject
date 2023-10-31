@@ -22,7 +22,7 @@
 
 <!--    </bean>-->
 
-<!--    <bean class="com.personal.emsp.das.entity.Employee" name="emp">-->
+<!--    <bean class="com.personal.emsp.das.entity.Birds" name="emp">-->
 <!--        <property name="firstName" value="1"/>-->
 <!--        <property name="lastName" value="Rajesh"/>-->
 <!--        <property name="email" value="10000"/>-->

@@ -12,8 +12,7 @@
         <property name="hbm2ddl.auto">update</property>           <!--this will create the table automatically if not exist-->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-        <mapping class="com.personal.emsp.das.entity.Employee"/>   <!-- mapping of the entity class required to mapping ow hibernate not know the entity-->
-        <mapping class="com.personal.emsp.das.entity.Question"/>
-        <mapping class="com.personal.emsp.das.entity.Answer"/>
+        <mapping resource="context/hbm/birds.hbm.xml"/>   <!-- mapping of the entity class required to mapping ow hibernate not know the entity-->
+
     </session-factory>
 </hibernate-configuration>

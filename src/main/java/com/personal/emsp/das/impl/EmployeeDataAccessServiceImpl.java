@@ -1,7 +1,7 @@
 package com.personal.emsp.das.impl;
 
 import com.personal.emsp.das.EmployeeDataAccessService;
-import com.personal.emsp.das.entity.Employee;
+import com.personal.emsp.das.entity.Birds;
 import com.personal.emsp.das.rowMapper.EmployeeRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,13 +28,13 @@ public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService 
     }
 
     @Override
-    public int insertEmployee(Employee emp){
+    public int insertEmployee(Birds emp){
         String qry="insert into employee values(?,?,?,?,?)";
         return jdbcTemplate.update(qry,emp.getId(),emp.getFirstName(),emp.getLastName(),emp.getEmail(),emp.getPassword());
     }
 
     @Override
-    public int updateEmployee(Employee emp) {
+    public int updateEmployee(Birds emp) {
         String qry = "update employee set firstName=?,lastName=?,email=?,password=? where id=?";
         return jdbcTemplate.update(qry,emp.getFirstName(),emp.getLastName(),emp.getEmail(),emp.getPassword(),emp.getId());   //returning the number of rows affected
     }
@@ -46,13 +46,13 @@ public class EmployeeDataAccessServiceImpl implements EmployeeDataAccessService 
     }
 
     @Override
-    public Employee getEmployee(int id) {
+    public Birds getEmployee(int id) {
         String qry= "select * from employee where id=?";
         return jdbcTemplate.queryForObject(qry,new EmployeeRowMapper(),id);
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
+    public List<Birds> getAllEmployees() {
         String qry= "select * from employee";
         return jdbcTemplate.query(qry,new EmployeeRowMapper());    }
 }

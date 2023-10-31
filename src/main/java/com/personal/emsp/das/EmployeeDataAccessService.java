@@ -1,15 +1,15 @@
 package com.personal.emsp.das;
 
-import com.personal.emsp.das.entity.Employee;
+import com.personal.emsp.das.entity.Birds;
 
 import java.util.List;
 
 public interface EmployeeDataAccessService {
 
-    int insertEmployee(Employee emp);
-    int updateEmployee(Employee updatedEmp);
+    int insertEmployee(Birds emp);
+    int updateEmployee(Birds updatedEmp);
     Boolean deleteEmployee(int id);
-    Employee getEmployee(int id);
-    List<Employee> getAllEmployees();
+    Birds getEmployee(int id);
+    List<Birds> getAllEmployees();
 }
 

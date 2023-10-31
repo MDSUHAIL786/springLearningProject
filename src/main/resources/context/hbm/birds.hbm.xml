@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!--    do all annotation work here like give column name table name, id generator etc-->
+    <class name="com.personal.emsp.das.entity.Birds" table="tempEmp">
+        <id name="id" column="id">
+            <generator class="native"/>      <!-- this will not generate the id automatically -->
+        </id>
+        <property name="firstName" column="name"/>
+        <property name="lastName" column="color"/>
+        <property name="email" column="age"/>
+        <property name="password" column="pd"/>
+
+<!--        all tags are here for OneToMany etc-->
+    </class>
+</hibernate-mapping>
+
+
+<!--now the give the path of this entity to main hibernate.cfg.xml file-->
